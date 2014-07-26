@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Learn → Swift Feed</title>
+  <subtitle>A no-frills introduction to Swift</subtitle>
+  <id>http://learn-swift.co</id>
+  <link href="http://learn-swift.co"/>
+  <link href="http://learn-swift.co/feed" rel="self"/>
+  <updated>2014-07-19T22:00:00+00:00</updated>
+  <author>
+    <name>Reda Lemeden</name>
+  </author>
+  <entry>
+    <title>Dictionaries</title>
+    <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
+    <id>http://learn-swift.co/dictionaries/</id>
+    <published>2014-07-19T22:00:00+00:00</published>
+    <updated>2014-07-25T16:17:23+00:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="declaring-dictionaries"&gt;Declaring Dictionaries&lt;/h3&gt;
+
+&lt;p&gt;Dictionaries hold a collection of key and value pairs. Like arrays, they can be
+declared using the bracket shorthand syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var bossNames = [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Mecha&amp;quot;, &amp;quot;Chemical Plant&amp;quot;: &amp;quot;Water&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To explicitly set the type of a dictionary, you can use the &lt;code&gt;[Type: Type]&lt;/code&gt;
+syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var moreBossNames: [String: String] = [:]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All keys must be of the same type. The same applies for values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var bossNames: [String: String] = [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, 2: &amp;quot;Water&amp;quot;] // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="inspecting-dictionaries"&gt;Inspecting Dictionaries&lt;/h3&gt;
+
+&lt;p&gt;You can get the number of key/value pairs in a dictionary using &lt;code&gt;count&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;bossNames.count // -&amp;gt; 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check whether a dictionary is empty, you can use the &lt;code&gt;isEmpty()&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;bossNames.isEmpty // -&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="getting-dictionary-values"&gt;Getting Dictionary Values&lt;/h3&gt;
+
+&lt;p&gt;Like arrays, you can use subscript syntax to retrieve the value&lt;sup id="fnref1"&gt;&lt;a href="#fn1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; corresponding to
+a given key.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;bossNames[&amp;quot;Chemical Plant&amp;quot;] // -&amp;gt; &amp;quot;Water&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="adding-to-a-dictionary"&gt;Adding to a Dictionary&lt;/h3&gt;
+
+&lt;p&gt;To add a new key/value pair, use the subscript operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;moreBossNames[&amp;quot;Casino Night&amp;quot;] = &amp;quot;Catcher&amp;quot;
+// -&amp;gt; [&amp;quot;Casino Night&amp;quot;: &amp;quot;Catcher&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="updating-dictionary-values"&gt;Updating Dictionary Values&lt;/h3&gt;
+
+&lt;p&gt;To update an existing value, use the subscript syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;bossNames[&amp;quot;Emerald Hill&amp;quot;] = &amp;quot;Drill&amp;quot;
+// -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;, &amp;quot;Chemical Plant&amp;quot;: &amp;quot;Water&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="mutating-dictionaries"&gt;Mutating Dictionaries&lt;/h3&gt;
+
+&lt;p&gt;Mutating the values included in a dictionary requires the latter
+to be declared as a variable using the &lt;code&gt;var&lt;/code&gt; keyword:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let constantBossNames: [String: String] = [:]
+constantBossNames[&amp;quot;Emerald Hill&amp;quot;] = &amp;quot;Drill&amp;quot; // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="deleting-dictionary-values"&gt;Deleting Dictionary Values&lt;/h3&gt;
+
+&lt;p&gt;To delete an existing key/value pair, make its value &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;bossNames[&amp;quot;Chemical Plant&amp;quot;] = nil
+// -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class="footnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id="fn1"&gt;
+&lt;ol&gt;
+&lt;li&gt;In practice, what you get is an optional value, which means it can be &lt;code&gt;nil&lt;/code&gt;. More on that later.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    <summary>In this section, we'll take a look at Swift dictionaries.</summary>
+  </entry>
+  <entry>
+    <title>Arrays</title>
+    <link rel="alternate" href="http://learn-swift.co/arrays/"/>
+    <id>http://learn-swift.co/arrays/</id>
+    <published>2014-07-04T22:00:00+00:00</published>
+    <updated>2014-07-25T14:29:02+00:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="declaring-arrays"&gt;Declaring Arrays&lt;/h3&gt;
+
+&lt;p&gt;Arrays hold a collection of values with the same type. They
+can be declared using the bracket shorthand syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var levelNames = [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The type of values in an array can be inferred as in the example above (string).
+It can also be explicitly set using the &lt;code&gt;[Type]&lt;/code&gt; syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var moreLevelNames: [String] = []
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;An array can only hold values of the same type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var levelNames: [String] = [&amp;quot;Green Hill&amp;quot;, 2, &amp;quot;Labyrinth&amp;quot;] // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="inspecting-arrays"&gt;Inspecting Arrays&lt;/h3&gt;
+
+&lt;p&gt;You can get the number of values in an array using &lt;code&gt;count&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames.count // -&amp;gt; 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To check whether an array is empty, you can use the &lt;code&gt;isEmpty()&lt;/code&gt; function:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames.isEmpty // -&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="getting-array-values"&gt;Getting Array Values&lt;/h3&gt;
+
+&lt;p&gt;Use subscript syntax to retrieve the value stored in a given index:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames[0] // -&amp;gt; &amp;quot;Green Hill&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that the first item has an index of 0.&lt;/p&gt;
+
+&lt;h3 id="adding-array-values"&gt;Adding Array Values&lt;/h3&gt;
+
+&lt;p&gt;To add a new value, use the &lt;code&gt;+=&lt;/code&gt; operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames += &amp;quot;Star Light&amp;quot; // -&amp;gt; [&amp;quot;Star Light&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also use &lt;code&gt;append()&lt;/code&gt; for the same end:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; [&amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="concatenating-arrays"&gt;Concatenating Arrays&lt;/h3&gt;
+
+&lt;p&gt;You can concatenate two arrays using the &lt;code&gt;+=&lt;/code&gt; operator:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames += moreLevelNames
+// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="mutating-arrays"&gt;Mutating Arrays&lt;/h3&gt;
+
+&lt;p&gt;In order to mutate the values included in an array, it needs to be declared as a variable using the
+keyword &lt;code&gt;var&lt;/code&gt;; constant arrays are immutable:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let constantLevelNames: [String] = []
+constantLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="inserting-values"&gt;Inserting Values&lt;/h3&gt;
+
+&lt;p&gt;To insert a value at a given index, use &lt;code&gt;insert&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames.insert(&amp;quot;Labyrinth&amp;quot;, atIndex: 3)
+// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="updating-array-values"&gt;Updating Array Values&lt;/h3&gt;
+
+&lt;p&gt;To update an existing value, use the subscript syntax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames[5] = &amp;quot;Scrap Brain&amp;quot;
+// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Scrap Brain&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="deleting-array-values"&gt;Deleting Array Values&lt;/h3&gt;
+
+&lt;p&gt;To delete a value, use &lt;code&gt;removeAtIndex()&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames.removeAtIndex(5)
+// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>In this section, we'll take a look at Swift arrays.</summary>
+  </entry>
+  <entry>
+    <title>Getting Started</title>
+    <link rel="alternate" href="http://learn-swift.co/getting-started/"/>
+    <id>http://learn-swift.co/getting-started/</id>
+    <published>2014-06-12T23:00:00+01:00</published>
+    <updated>2014-07-25T17:19:00+00:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="console-output"&gt;Console Output&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;println(&amp;quot;Hello, Swift.&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="variables"&gt;Variables&lt;/h3&gt;
+
+&lt;p&gt;Variables are declared using the keyword &lt;code&gt;var&lt;/code&gt;, followed by the variable name
+and its type (optional, see &lt;a href="#type-inference"&gt;Type Inference&lt;/a&gt;). A value can be assigned to the variable
+using the &lt;code&gt;=&lt;/code&gt; operand:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var playerName: String = &amp;quot;Player 1&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Variables can be re-assigned:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;playerName = &amp;quot;Kaishin&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Variables cannot be &lt;code&gt;nil&lt;/code&gt;&lt;sup id="fnref1"&gt;&lt;a href="#fn1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;playerName = nil // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="constants"&gt;Constants&lt;/h3&gt;
+
+&lt;p&gt;Constants are declared similarly to &lt;a href="#variables"&gt;variables&lt;/a&gt;, except they use the
+keyword &lt;code&gt;let&lt;/code&gt; instead:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let gameTitle: String = &amp;quot;Flappy Swift&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Constants cannot be re-assigned:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;gameTitle = &amp;quot;Swift Valley&amp;quot; // -&amp;gt; Error
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Like variables, constants cannot be &lt;code&gt;nil&lt;/code&gt;&lt;sup id="fnref1"&gt;&lt;a href="#fn1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h3 id="type-inference"&gt;Type Inference&lt;/h3&gt;
+
+&lt;p&gt;Type inference refers to the compiler&amp;rsquo;s ability
+to implicitly determine the type of a variable without having to
+specify it in the declaration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var opponentName = &amp;quot;Player 2&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="string-interpolation"&gt;String Interpolation&lt;/h3&gt;
+
+&lt;p&gt;Values can be included in strings using a &lt;code&gt;\&lt;/code&gt; and the desired value between
+parentheses:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var numberOfLives = 99
+var livesLabel = &amp;quot;You have \(numberOfLives - 1) lives remaining.&amp;quot;
+// -&amp;gt; &amp;quot;You have 98 lives remaining.&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class="footnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id="fn1"&gt;
+&lt;p&gt;Variables and constants that are explicitly declared as optional can be &lt;code&gt;nil&lt;/code&gt;. More on that later.&amp;nbsp;&lt;a href="#fnref1" rev="footnote"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+    <summary>In this first section, we cover variables, constants, type inference, casting and string interpolation.</summary>
+  </entry>
+</feed>
