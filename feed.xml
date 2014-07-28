@@ -5,16 +5,76 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-07-19T22:00:00+00:00</updated>
+  <updated>2014-07-28T12:30:00+00:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
+  <entry>
+    <title>Tuples</title>
+    <link rel="alternate" href="http://learn-swift.co/tuples/"/>
+    <id>http://learn-swift.co/tuples/</id>
+    <published>2014-07-28T12:30:00+00:00</published>
+    <updated>2014-07-28T18:09:49+00:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="declaring-tuples"&gt;Declaring Tuples&lt;/h3&gt;
+
+&lt;p&gt;Tuples group multiple values of possibly different types. They are declared using
+parentheses:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let alertMode = (4, &amp;quot;Red&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To explicitly set the type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let evasionMode: (Int, String) = (3, &amp;quot;Orange&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also name the values for easier access:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let cautionMode = (level: 2, color: &amp;quot;Lime&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="getting-tuple-values"&gt;Getting Tuple Values&lt;/h3&gt;
+
+&lt;p&gt;Use dot syntax to access the value stored at a given index:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let alertColor = alertMode.1 // -&amp;gt; &amp;quot;Red&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also a &lt;em&gt;decomposition&lt;/em&gt; syntax to retrieve some values and ignore others:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let (_, evasionColor) = evasionMode
+evasionColor // -&amp;gt; &amp;quot;Orange&amp;quot;
+let (evasionLevel, _) = evasionMode
+evasionLevel // -&amp;gt; 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the values were named during declaration, you can access them using
+their names:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let cautionColor = cautionMode.color // -&amp;gt; &amp;quot;Lime&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="updating-tuple-values"&gt;Updating Tuple Values&lt;/h3&gt;
+
+&lt;p&gt;Declare tuples as variables in order to be able to update their values, then use
+dot syntax (with indices or names) to do so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var normalMode = (1, &amp;quot;Blue&amp;quot;)
+normalMode.1 = &amp;quot;Green&amp;quot;
+normalMode // -&amp;gt; (1, &amp;quot;Green&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>Tuples are a type that groups multiple values of possibly different types.</summary>
+  </entry>
   <entry>
     <title>Dictionaries</title>
     <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
     <id>http://learn-swift.co/dictionaries/</id>
     <published>2014-07-19T22:00:00+00:00</published>
-    <updated>2014-07-25T16:17:23+00:00</updated>
+    <updated>2014-07-28T17:09:58+00:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -62,7 +122,7 @@ a given key.&lt;/p&gt;
 &lt;p&gt;To add a new key/value pair, use the subscript operator:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;moreBossNames[&amp;quot;Casino Night&amp;quot;] = &amp;quot;Catcher&amp;quot;
-// -&amp;gt; [&amp;quot;Casino Night&amp;quot;: &amp;quot;Catcher&amp;quot;]
+moreBossNames // -&amp;gt; [&amp;quot;Casino Night&amp;quot;: &amp;quot;Catcher&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id="updating-dictionary-values"&gt;Updating Dictionary Values&lt;/h3&gt;
@@ -70,7 +130,7 @@ a given key.&lt;/p&gt;
 &lt;p&gt;To update an existing value, use the subscript syntax:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;bossNames[&amp;quot;Emerald Hill&amp;quot;] = &amp;quot;Drill&amp;quot;
-// -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;, &amp;quot;Chemical Plant&amp;quot;: &amp;quot;Water&amp;quot;]
+bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;, &amp;quot;Chemical Plant&amp;quot;: &amp;quot;Water&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id="mutating-dictionaries"&gt;Mutating Dictionaries&lt;/h3&gt;
@@ -87,7 +147,7 @@ constantBossNames[&amp;quot;Emerald Hill&amp;quot;] = &amp;quot;Drill&amp;quot; 
 &lt;p&gt;To delete an existing key/value pair, make its value &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;bossNames[&amp;quot;Chemical Plant&amp;quot;] = nil
-// -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;]
+bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;quot;, &amp;quot;Aquatic Ruin&amp;quot;: &amp;quot;Hammer&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class="footnotes"&gt;
@@ -110,7 +170,7 @@ constantBossNames[&amp;quot;Emerald Hill&amp;quot;] = &amp;quot;Drill&amp;quot; 
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
     <published>2014-07-04T22:00:00+00:00</published>
-    <updated>2014-07-25T14:29:02+00:00</updated>
+    <updated>2014-07-28T17:08:22+00:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -147,7 +207,7 @@ It can also be explicitly set using the &lt;code&gt;[Type]&lt;/code&gt; syntax:&
 
 &lt;h3 id="getting-array-values"&gt;Getting Array Values&lt;/h3&gt;
 
-&lt;p&gt;Use subscript syntax to retrieve the value stored in a given index:&lt;/p&gt;
+&lt;p&gt;Use subscript syntax to access the value stored at a given index:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames[0] // -&amp;gt; &amp;quot;Green Hill&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
@@ -163,7 +223,8 @@ It can also be explicitly set using the &lt;code&gt;[Type]&lt;/code&gt; syntax:&
 
 &lt;p&gt;You can also use &lt;code&gt;append()&lt;/code&gt; for the same end:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; [&amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
+&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames.append(&amp;quot;Final&amp;quot;)
+moreLevelNames // -&amp;gt; [&amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id="concatenating-arrays"&gt;Concatenating Arrays&lt;/h3&gt;
@@ -188,7 +249,7 @@ constantLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; Error
 &lt;p&gt;To insert a value at a given index, use &lt;code&gt;insert&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames.insert(&amp;quot;Labyrinth&amp;quot;, atIndex: 3)
-// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
+levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id="updating-array-values"&gt;Updating Array Values&lt;/h3&gt;
@@ -196,7 +257,7 @@ constantLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; Error
 &lt;p&gt;To update an existing value, use the subscript syntax:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames[5] = &amp;quot;Scrap Brain&amp;quot;
-// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Scrap Brain&amp;quot;]
+levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;, &amp;quot;Scrap Brain&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id="deleting-array-values"&gt;Deleting Array Values&lt;/h3&gt;
@@ -204,7 +265,7 @@ constantLevelNames.append(&amp;quot;Final&amp;quot;) // -&amp;gt; Error
 &lt;p&gt;To delete a value, use &lt;code&gt;removeAtIndex()&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames.removeAtIndex(5)
-// -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;]
+levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 </content>
     <summary>In this section, we'll take a look at Swift arrays.</summary>
