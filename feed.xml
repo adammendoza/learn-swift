@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://learn-swift.co/tuples/"/>
     <id>http://learn-swift.co/tuples/</id>
     <published>2014-07-28T12:30:00+00:00</published>
-    <updated>2014-07-28T18:09:49+00:00</updated>
+    <updated>2014-07-29T18:04:54+01:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -43,7 +43,7 @@ parentheses:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="swift"&gt;let alertColor = alertMode.1 // -&amp;gt; &amp;quot;Red&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You can also a &lt;em&gt;decomposition&lt;/em&gt; syntax to retrieve some values and ignore others:&lt;/p&gt;
+&lt;p&gt;You can also use the following syntax to retrieve some values while ignoring others:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;let (_, evasionColor) = evasionMode
 evasionColor // -&amp;gt; &amp;quot;Orange&amp;quot;

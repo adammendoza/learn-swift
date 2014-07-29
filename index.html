@@ -45,7 +45,7 @@ bossNames // -&gt; [&quot;Emerald Hill&quot;: &quot;Drill&quot;, &quot;Aquatic R
 </code></pre> <p>To explicitly set the type:</p> <pre><code class="swift">let evasionMode: (Int, String) = (3, &quot;Orange&quot;)
 </code></pre> <p>You can also name the values for easier access:</p> <pre><code class="swift">let cautionMode = (level: 2, color: &quot;Lime&quot;)
 </code></pre> <h3 id=getting-tuple-values>Getting Tuple Values</h3> <p>Use dot syntax to access the value stored at a given index:</p> <pre><code class="swift">let alertColor = alertMode.1 // -&gt; &quot;Red&quot;
-</code></pre> <p>You can also a <em>decomposition</em> syntax to retrieve some values and ignore others:</p> <pre><code class="swift">let (_, evasionColor) = evasionMode
+</code></pre> <p>You can also use the following syntax to retrieve some values while ignoring others:</p> <pre><code class="swift">let (_, evasionColor) = evasionMode
 evasionColor // -&gt; &quot;Orange&quot;
 let (evasionLevel, _) = evasionMode
 evasionLevel // -&gt; 3
