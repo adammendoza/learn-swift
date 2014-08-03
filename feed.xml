@@ -5,16 +5,163 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-07-28T12:30:00+00:00</updated>
+  <updated>2014-07-30T17:45:00+02:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
   <entry>
+    <title>Basic Operators</title>
+    <link rel="alternate" href="http://learn-swift.co/basic-operators/"/>
+    <id>http://learn-swift.co/basic-operators/</id>
+    <published>2014-07-30T17:45:00+02:00</published>
+    <updated>2014-08-03T12:54:38+02:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="assignment-operator"&gt;Assignment Operator&lt;/h3&gt;
+
+&lt;p&gt;The assignment operator (&lt;code&gt;=&lt;/code&gt;) is used either to initialize a value regardless of its type, or update it if it was declared as a variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let pokemonName = &amp;quot;Pikachu&amp;quot;
+let mirrorPokemonName = pokemonName
+mirrorPokemonName // -&amp;gt; &amp;quot;Pikachu&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The assignment operator does not return a value.&lt;/p&gt;
+
+&lt;h3 id="arithmetic-operators"&gt;Arithmetic Operators&lt;/h3&gt;
+
+&lt;p&gt;Swift comes with all the arithmetic operators you would expect in a modern
+programming language.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;35 + 10 // -&amp;gt; 45
+35 - 10 // -&amp;gt; 25
+10 * 2 // -&amp;gt; 20
+10 / 3 // -&amp;gt; 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The addition operator can also be used to concatenate two or more strings:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;&amp;quot;Lightning&amp;quot; + &amp;quot; &amp;quot; + &amp;quot;Rod&amp;quot; // -&amp;gt; &amp;quot;Lightning Rod&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or arrays:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let moves = [&amp;quot;Tail Whip&amp;quot;, &amp;quot;Thunder Shock&amp;quot;]
+let moreMoves = [&amp;quot;Growl&amp;quot;, &amp;quot;Play Nice&amp;quot;]
+var moveSet = moves + moreMoves
+moveSet // -&amp;gt; [&amp;quot;Tail Whip&amp;quot;, &amp;quot;Thunder Shock&amp;quot;, &amp;quot;Growl&amp;quot;, &amp;quot;Play Nice&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="range-operators"&gt;Range Operators&lt;/h3&gt;
+
+&lt;p&gt;Range operators allow you to express a range of a values using lower and upper
+bounds. They come in two flavors.&lt;/p&gt;
+
+&lt;p&gt;The &lt;em&gt;closed range operator&lt;/em&gt; includes the value corresponding to the upper bound:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;moveSet[1...2] // -&amp;gt; [&amp;quot;Thunder Shock&amp;quot;, &amp;quot;Growl&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;em&gt;half-closed&lt;/em&gt; range operator omits the value corresponding to the upper
+bound:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;moveSet[1..&amp;lt;2] // -&amp;gt; [&amp;quot;Thunder Shock&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="remainder-operator"&gt;Remainder Operator&lt;/h3&gt;
+
+&lt;p&gt;The remainder operator (&lt;code&gt;%&lt;/code&gt;) outputs the remainder of a division of two numbers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;10 % 3 // -&amp;gt; 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It also works with floats and negative numbers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;35 % -15 // -&amp;gt; 5
+10 % 3.5 // -&amp;gt; 3.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="compound-assignment-operators"&gt;Compound Assignment Operators&lt;/h3&gt;
+
+&lt;p&gt;These operators execute an operation and assign the result to
+the left operand at the same time:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var remainingHP = 35
+remainingHP += 10 // -&amp;gt; 45 (remainingHP = remainingHP + 10)
+remainingHP -= 10 // -&amp;gt; 35 (remainingHP = remainingHP - 10)
+remainingHP *= 2 // -&amp;gt; 70 (remainingHP = remainingHP * 2)
+remainingHP /= 2 // -&amp;gt; 35 (remainingHP = remainingHP / 2)
+remainingHP %= 6 // -&amp;gt; 5 (remainingHP = remainingHP % 6)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="unary-operators"&gt;Unary Operators&lt;/h3&gt;
+
+&lt;p&gt;Swift has all the unary operators that are common in other languages:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;remainingHP = 35
+++remainingHP // -&amp;gt; 36
+--remainingHP // -&amp;gt; 35
+
+let damageToKO = -remainingHP // -&amp;gt; -35
++damageToKO // -&amp;gt; -35
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note that the unary &lt;em&gt;plus&lt;/em&gt; operator is just syntactic sugar and does not change
+the value it was prepended to.&lt;/p&gt;
+
+&lt;p&gt;If the increment or decrement operators are appended as postfix operators
+(&lt;code&gt;value++&lt;/code&gt;), the variable is modified &lt;em&gt;after&lt;/em&gt; its value is returned:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;remainingHP // -&amp;gt; 35
+remainingHP-- // -&amp;gt; 35
+remainingHP // -&amp;gt; 34
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="comparison-operators"&gt;Comparison Operators&lt;/h3&gt;
+
+&lt;p&gt;Comparison operators are binary operators that compare two values and return a
+boolean:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;35 == 35 // -&amp;gt; true (is equal)
+180 != 35 // -&amp;gt; true (is not equal)
+
+180 &amp;gt; 35 // -&amp;gt; true (is greater than)
+35 &amp;lt; 180 // -&amp;gt; true (is less than)
+
+35 &amp;gt;= 35 // -&amp;gt; true (is greater than or equal)
+180 &amp;lt;= 35 // -&amp;gt; false (is less than or equal)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="logical-operators"&gt;Logical Operators&lt;/h3&gt;
+
+&lt;p&gt;Swift has three logical operators that all return a boolean value:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The NOT operator (&lt;code&gt;!value&lt;/code&gt;) inverts a boolean value.&lt;/li&gt;
+&lt;li&gt;The AND operator (&lt;code&gt;value1 &amp;amp;&amp;amp; value2&lt;/code&gt;) returns &lt;code&gt;true&lt;/code&gt; if all values are
+&lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The OR operator (&lt;code&gt;value1 || value2&lt;/code&gt;) returns &lt;code&gt;true&lt;/code&gt; if at least one value is
+&lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var damage = 56
+var lastPokemon = true
+var oneHitKO = (damage &amp;gt; remainingHP) // -&amp;gt; true
+
+!oneHitKO // -&amp;gt; false
+!oneHitKO &amp;amp;&amp;amp; lastPokemon // -&amp;gt; false
+!oneHitKO || lastPokemon // -&amp;gt; true
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>Operators are symbols that are used to modify or inspect values. Let's backtrack a bit and have a look at some basic ones in Swift.</summary>
+  </entry>
+  <entry>
     <title>Tuples</title>
     <link rel="alternate" href="http://learn-swift.co/tuples/"/>
     <id>http://learn-swift.co/tuples/</id>
-    <published>2014-07-28T12:30:00+00:00</published>
-    <updated>2014-07-29T18:04:54+01:00</updated>
+    <published>2014-07-28T14:30:00+02:00</published>
+    <updated>2014-07-30T17:40:09+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -73,8 +220,8 @@ normalMode // -&amp;gt; (1, &amp;quot;Green&amp;quot;)
     <title>Dictionaries</title>
     <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
     <id>http://learn-swift.co/dictionaries/</id>
-    <published>2014-07-19T22:00:00+00:00</published>
-    <updated>2014-07-28T17:09:58+00:00</updated>
+    <published>2014-07-20T00:00:00+02:00</published>
+    <updated>2014-07-28T19:09:58+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -169,8 +316,8 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
     <title>Arrays</title>
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
-    <published>2014-07-04T22:00:00+00:00</published>
-    <updated>2014-07-28T17:08:22+00:00</updated>
+    <published>2014-07-05T00:00:00+02:00</published>
+    <updated>2014-07-28T19:08:22+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -274,8 +421,8 @@ levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;qu
     <title>Getting Started</title>
     <link rel="alternate" href="http://learn-swift.co/getting-started/"/>
     <id>http://learn-swift.co/getting-started/</id>
-    <published>2014-06-12T23:00:00+01:00</published>
-    <updated>2014-07-25T17:19:00+00:00</updated>
+    <published>2014-06-13T00:00:00+02:00</published>
+    <updated>2014-07-25T19:19:00+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
