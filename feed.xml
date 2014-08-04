@@ -221,7 +221,7 @@ normalMode // -&amp;gt; (1, &amp;quot;Green&amp;quot;)
     <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
     <id>http://learn-swift.co/dictionaries/</id>
     <published>2014-07-20T00:00:00+02:00</published>
-    <updated>2014-08-05T01:11:32+02:00</updated>
+    <updated>2014-08-05T01:29:47+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -302,9 +302,7 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
 &lt;ol&gt;
 
 &lt;li id="fn1"&gt;
-&lt;ol&gt;
-&lt;li&gt;In practice, what you get is an optional value, which means it can be &lt;code&gt;nil&lt;/code&gt;. More on that later.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;In practice, what you get is an optional value, which means it can be &lt;code&gt;nil&lt;/code&gt;. More on that later.&amp;nbsp;&lt;a href="#fnref1" rev="footnote"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 
 &lt;/ol&gt;
@@ -317,7 +315,7 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
     <published>2014-07-05T00:00:00+02:00</published>
-    <updated>2014-08-05T01:14:11+02:00</updated>
+    <updated>2014-08-05T01:29:48+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -425,9 +423,7 @@ levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;qu
 &lt;ol&gt;
 
 &lt;li id="fn1"&gt;
-&lt;ol&gt;
-&lt;li&gt;In practice, what you get is an optional value, which means it can be&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;In practice, what you get is an optional value, which means it can be&amp;nbsp;&lt;a href="#fnref1" rev="footnote"&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 
 &lt;/ol&gt;
