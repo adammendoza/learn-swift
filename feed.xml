@@ -221,7 +221,7 @@ normalMode // -&amp;gt; (1, &amp;quot;Green&amp;quot;)
     <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
     <id>http://learn-swift.co/dictionaries/</id>
     <published>2014-07-20T00:00:00+02:00</published>
-    <updated>2014-07-28T19:09:58+02:00</updated>
+    <updated>2014-08-05T01:11:32+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -317,7 +317,7 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
     <published>2014-07-05T00:00:00+02:00</published>
-    <updated>2014-07-28T19:08:22+02:00</updated>
+    <updated>2014-08-05T01:14:11+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -352,6 +352,12 @@ It can also be explicitly set using the &lt;code&gt;[Type]&lt;/code&gt; syntax:&
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames.isEmpty // -&amp;gt; false
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;To get the first or last value&lt;sup id="fnref1"&gt;&lt;a href="#fn1" rel="footnote"&gt;1&lt;/a&gt;&lt;/sup&gt; in an array, use the &lt;code&gt;first()&lt;/code&gt; and &lt;code&gt;last()&lt;/code&gt; methods respectively:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;levelNames.first // -&amp;gt; &amp;quot;Green Hill&amp;quot;
+levelNames.last // -&amp;gt; &amp;quot;Spring Yard&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h3 id="getting-array-values"&gt;Getting Array Values&lt;/h3&gt;
 
 &lt;p&gt;Use subscript syntax to access the value stored at a given index:&lt;/p&gt;
@@ -363,14 +369,11 @@ It can also be explicitly set using the &lt;code&gt;[Type]&lt;/code&gt; syntax:&
 
 &lt;h3 id="adding-array-values"&gt;Adding Array Values&lt;/h3&gt;
 
-&lt;p&gt;To add a new value, use the &lt;code&gt;+=&lt;/code&gt; operator:&lt;/p&gt;
+&lt;p&gt;To add a new value, use the &lt;code&gt;append()&lt;/code&gt; function:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames += &amp;quot;Star Light&amp;quot; // -&amp;gt; [&amp;quot;Star Light&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can also use &lt;code&gt;append()&lt;/code&gt; for the same end:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames.append(&amp;quot;Final&amp;quot;)
+&lt;pre&gt;&lt;code class="swift"&gt;moreLevelNames.append(&amp;quot;Star Light&amp;quot;)
+moreLevelNames // -&amp;gt; [&amp;quot;Star Light&amp;quot;]
+moreLevelNames.append(&amp;quot;Final&amp;quot;)
 moreLevelNames // -&amp;gt; [&amp;quot;Star Light&amp;quot;, &amp;quot;Final&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -414,6 +417,21 @@ levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;qu
 &lt;pre&gt;&lt;code class="swift"&gt;levelNames.removeAtIndex(5)
 levelNames // -&amp;gt; [&amp;quot;Green Hill&amp;quot;, &amp;quot;Marble&amp;quot;, &amp;quot;Spring Yard&amp;quot;, &amp;quot;Labyrinth&amp;quot;, &amp;quot;Star Light&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;nil&lt;/code&gt;, for example when the array is empty. More on optionals later.&lt;/p&gt;
+
+&lt;div class="footnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id="fn1"&gt;
+&lt;ol&gt;
+&lt;li&gt;In practice, what you get is an optional value, which means it can be&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
 </content>
     <summary>In this section, we'll take a look at Swift arrays.</summary>
   </entry>
