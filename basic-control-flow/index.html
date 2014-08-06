@@ -1,0 +1,99 @@
+<!DOCTYPE html> <html class=js-disabled> <head> <meta charset=utf-8> <meta content="IE=edge" http-equiv=X-UA-Compatible> <title>Basic Control Flow - Learn Swift</title> <meta content="width=device-width, initial-scale=1" name=viewport> <meta name=keywords content="swift,swift-lang,swiftlang,learn swift,swift programming,swift language,apple,ios,reda lemeden,kaishin,swift variables,swift constants,swift dictionaries,swift arrays"> <meta name=description content="A no-frills introduction to Swift for busy and/or curious people"> <meta name=author content="Reda Lemeden"> <meta property="og:title" content="Basic Control Flow - Learn Swift"/> <meta property="og:type" content=website /> <meta property="og:url" content="http://learn-swift.co/basic-control-flow/"/> <meta property="og:image" content="https://dl.dropboxusercontent.com/u/148921/learn-swift/thumbnail.png"/> <meta property="og:description" content="A no-frills introduction to Swift for busy and/or curious people" <meta name="twitter:card" content=summary> <meta name="twitter:url" content="http://learn-swift.co/basic-control-flow/"> <meta name="twitter:title" content="Basic Control Flow - Learn Swift"> <meta name="twitter:description" content="A no-frills introduction to Swift for busy and/or curious people"> <meta name="twitter:image" content="https://dl.dropboxusercontent.com/u/148921/learn-swift/thumbnail.png"> <meta name="twitter:site" content="@learnswiftintro"> <meta name="twitter:creator" content="@kaishin"> <meta name=google-site-verification content=wORXjk9nSO7wqMIvSu_zElBC83WLkkSVGVOJjA9w7W4 /> <meta name="msvalidate.01" content=B6743A36BFB03E14D4E7A35A58155A13 /> <meta name=language content=english> <link rel=alternate type="application/rss+xml" title="Learn Swift Feed" href="//rss.learn-swift.co/feed"> <link rel=apple-touch-icon-precomposed href="/apple-touch-icon.png"> <link href="../assets/stylesheets/main-35bbf970.css" rel=stylesheet /> </head> <body> <header class=main-header> <div class=content> <a href="/" class=logo> <h1 class=logotype>Learn <img alt="-&gt;" src="../assets/images/mark-1e961bbd.svg"/> Swift</h1> </a> </div> </header> <section class=articles> <div class=article-container> <article class=post data-role=content> <header class=article-header> <h2 class=article-title id=basic-control-flow> Basic Control Flow </h2> <a href="https://dl.dropboxusercontent.com/u/148921/learn-swift/basic-control-flow.zip" class=download-playground> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="../assets/images/sprite-42872aae.svg#file" class="file icon-path"></use></svg> Download Playground </a> </header> <h3 id=conditional-statements>Conditional Statements</h3> <p>The <code>if</code> statement evaluates a boolean value and executes a code block if it&rsquo;s <code>true</code>:</p> <pre><code class="swift">let elementalType = &quot;Fire&quot;
+
+if elementalType == &quot;Fire&quot; {
+  println(&quot;Use water!&quot;) // &lt;-
+}
+</code></pre> <p>With <code>else</code>:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
+  println(&quot;Any steel pokemons around?&quot;)
+} else {
+  println(&quot;Draco Meteor!&quot;) // &lt;-
+}
+</code></pre> <h3 id=chaining-conditionals>Chaining Conditionals</h3> <p>Multiple <code>if</code> statements can be chained:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
+  println(&quot;Any steel pokemons around?&quot;)
+} else if elementalType == &quot;Steel&quot; {
+  println(&quot;Kill it with fire!&quot;)
+} else {
+  println(&quot;Draco Meteor Again.&quot;) // &lt;-
+}
+</code></pre> <h3 id=switch-statements>Switch Statements</h3> <p>The <code>switch</code> statement evaluates a value against multiple patterns then executes the code corresponding to the one that matches:</p> <pre><code class="swift">switch elementalType {
+case &quot;Fairy&quot;:
+  println(&quot;Any steel pokemons around?&quot;)
+case &quot;Steel&quot;:
+  println(&quot;Kill it with fire!&quot;)
+default:
+  println(&quot;More Draco Meteor.&quot;) // &lt;-
+}
+</code></pre> <p>A <code>switch</code> statement needs to be exhaustive; every possible value should be covered. The <code>default</code> case covers all the remaining cases.</p> <p>A single case can check against multiple values:</p> <pre><code class="swift">switch elementalType {
+case &quot;Dragon&quot;, &quot;Flying&quot;, &quot;Grass&quot;, &quot;Ground&quot;:
+  println(&quot;Freeze it to death.&quot;)
+case &quot;Ice&quot;:
+  println(&quot;Melt it with fire!&quot;)
+default:
+  println(&quot;Ready for another Draco Meteor?&quot;) // &lt;-
+}
+</code></pre> <h3 id=switch-fall-through>Switch Fall-through</h3> <p>The execution of a <code>switch</code> statement stops as soon a case is matched:</p> <pre><code class="swift">let fireType = &quot;Fire&quot;
+
+switch fireType {
+case &quot;Fire&quot;:
+  println(&quot;Go, Squirtle!&quot;) // &lt;-
+default:
+  println(&quot;Your turn will never come, Pikachu...&quot;)
+}
+</code></pre> <p>You can also explicitly end execution using the keyword <code>break</code> anywhere in the statement.</p> <h3 id=range-matching>Range Matching</h3> <p>Cases in a <code>switch</code> statement can check if a value is included in a range:</p> <pre><code class="swift">let baseAttack = 89
+
+switch baseAttack {
+case 1...30:
+  println(&quot;Too weak for battles.&quot;)
+case 31...70:
+  println(&quot;Nothing to threaten the opponent.&quot;)
+case 71...150:
+  println(&quot;Now we&#39;re talking!&quot;) // &lt;-
+case 151...200:
+  println(&quot;Uber!&quot;)
+default:
+  println(&quot;This will get you banned.&quot;)
+}
+</code></pre> <h3 id=tuple-matching>Tuple Matching</h3> <p>Tuples can be used as values in <code>switch</code> cases. You can ignore a value in the tuple by replacing it with <code>_</code> in the case&rsquo;s test:</p> <pre><code class="swift">let baseSpecialAttack = 55
+let baseMixedAttack = (baseAttack, baseSpecialAttack)
+
+switch baseMixedAttack {
+case (80...200, 80...200):
+  println(&quot;Good mixed sweeper.&quot;)
+case (_, 80...200):
+  println(&quot;Good special sweeper.&quot;)
+case (80...200, _):
+  println(&quot;Good physical sweeper.&quot;) // &lt;-
+default:
+  println(&quot;This will get you banned.&quot;)
+}
+</code></pre> <h3 id=binding-values>Binding Values</h3> <p>Matched values can be bound to constants or variables and reused inside the case&rsquo;s body:</p> <pre><code class="swift">switch baseMixedAttack {
+case (80...200, let specialAttack):
+  println(&quot;Good physical sweeper with a special attack of \(specialAttack)&quot;) // &lt;-
+case (let attack, 80...200):
+  println(&quot;Good special sweeper with an attack of \(attack)&quot;)
+default:
+  println(&quot;Move on.&quot;)
+}
+</code></pre> <h3 id=where>Where</h3> <p>Cases in a <code>switch</code> statement can use a <code>where</code> clause to perform additional checks:</p> <pre><code class="swift">switch baseMixedAttack {
+case let (attack, specialAttack) where attack == specialAttack:
+  println(&quot;Perfectly balanced attack stats.&quot;)
+default:
+  println(&quot;Unbalanced attack stats.&quot;)
+}
+</code></pre> </article> </div> </section> <footer> <div data-role=content> Want to contribute? Here's the <a href="//github.com/kaishin/learn-swift">source code</a>. <p>Designed &amp; maintained by <a href="//redalemeden.com">Reda Lemeden</a>.</p> <a class=donate-link data-trigger=donation-modal href="#donate"> Buy the author some <strong>Matcha</strong> </a> <div class=donation-modal data-role=donation-modal> <div class=donation-modal-content> <label class=modal-close data-role=close></label> <h4 id=donate class=title> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="../assets/images/sprite-42872aae.svg#heart" class="heart icon-path"></use></svg> Donate </h4> <p>If you like this website and would like to support its further development, please consider donating.</p> <div class=bitcoin> <h6 class=bitcoin-title> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="../assets/images/sprite-42872aae.svg#bitcoin" class="bitcoin icon-path"></use></svg> Bitcoin Address: </h6> <data class=wallet-id value=12vVjzi5Ct7oW9pwgZdPm3SkQUfdiR6eWs>12vVjzi5Ct7oW9pwgZdPm3SkQUfdiR6eWs</data> </div> <div class=fiat> You can also donate via <a href="mailto:hello@learn-swift.co?cc=send@square.com&Subject=0%24&Body=Keep%20up%20the%20good%20work%21">Square Cash</a> or good ol'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HEPCTVD5UXSG2">Paypal</a>. </div> <p class=note><em>PS</em>: Never heard of <a href="//en.wikipedia.org/wiki/Matcha">matcha</a>? No worries, it's <em>100%</em> legal.</p> </div> </div> <div class=modal-overlay data-role=overlay></div> </div> </footer> <script src="../assets/javascripts/main-446c0280.js" async=true></script> <script>
+  (function(d) {
+    var config = {
+      kitId: 'jra4cdq',
+      scriptTimeout: 3000
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script> <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-379340-13', 'learn-swift.co');
+  ga('send', 'pageview');
+</script> </body> </html>

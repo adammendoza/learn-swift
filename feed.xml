@@ -5,16 +5,175 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-07-30T17:45:00+02:00</updated>
+  <updated>2014-08-06T17:00:00+02:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
+  <entry>
+    <title>Basic Control Flow</title>
+    <link rel="alternate" href="http://learn-swift.co/basic-control-flow/"/>
+    <id>http://learn-swift.co/basic-control-flow/</id>
+    <published>2014-08-06T17:00:00+02:00</published>
+    <updated>2014-08-07T00:51:23+02:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="conditional-statements"&gt;Conditional Statements&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;if&lt;/code&gt; statement evaluates a boolean value and executes a code block if it&amp;rsquo;s
+&lt;code&gt;true&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let elementalType = &amp;quot;Fire&amp;quot;
+
+if elementalType == &amp;quot;Fire&amp;quot; {
+  println(&amp;quot;Use water!&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With &lt;code&gt;else&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;if elementalType == &amp;quot;Fairy&amp;quot; {
+  println(&amp;quot;Any steel pokemons around?&amp;quot;)
+} else {
+  println(&amp;quot;Draco Meteor!&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="chaining-conditionals"&gt;Chaining Conditionals&lt;/h3&gt;
+
+&lt;p&gt;Multiple &lt;code&gt;if&lt;/code&gt; statements can be chained:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;if elementalType == &amp;quot;Fairy&amp;quot; {
+  println(&amp;quot;Any steel pokemons around?&amp;quot;)
+} else if elementalType == &amp;quot;Steel&amp;quot; {
+  println(&amp;quot;Kill it with fire!&amp;quot;)
+} else {
+  println(&amp;quot;Draco Meteor Again.&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="switch-statements"&gt;Switch Statements&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;switch&lt;/code&gt; statement evaluates a value against multiple patterns
+then executes the code corresponding to the one that matches:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;switch elementalType {
+case &amp;quot;Fairy&amp;quot;:
+  println(&amp;quot;Any steel pokemons around?&amp;quot;)
+case &amp;quot;Steel&amp;quot;:
+  println(&amp;quot;Kill it with fire!&amp;quot;)
+default:
+  println(&amp;quot;More Draco Meteor.&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A &lt;code&gt;switch&lt;/code&gt; statement needs to be exhaustive; every possible value should be
+covered. The &lt;code&gt;default&lt;/code&gt; case covers all the remaining cases.&lt;/p&gt;
+
+&lt;p&gt;A single case can check against multiple values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;switch elementalType {
+case &amp;quot;Dragon&amp;quot;, &amp;quot;Flying&amp;quot;, &amp;quot;Grass&amp;quot;, &amp;quot;Ground&amp;quot;:
+  println(&amp;quot;Freeze it to death.&amp;quot;)
+case &amp;quot;Ice&amp;quot;:
+  println(&amp;quot;Melt it with fire!&amp;quot;)
+default:
+  println(&amp;quot;Ready for another Draco Meteor?&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="switch-fall-through"&gt;Switch Fall-through&lt;/h3&gt;
+
+&lt;p&gt;The execution of a &lt;code&gt;switch&lt;/code&gt; statement stops as soon a case is matched:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let fireType = &amp;quot;Fire&amp;quot;
+
+switch fireType {
+case &amp;quot;Fire&amp;quot;:
+  println(&amp;quot;Go, Squirtle!&amp;quot;) // &amp;lt;-
+default:
+  println(&amp;quot;Your turn will never come, Pikachu...&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also explicitly end execution using the keyword &lt;code&gt;break&lt;/code&gt; anywhere in the
+statement.&lt;/p&gt;
+
+&lt;h3 id="range-matching"&gt;Range Matching&lt;/h3&gt;
+
+&lt;p&gt;Cases in a &lt;code&gt;switch&lt;/code&gt; statement can check if a value is included in a range:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let baseAttack = 89
+
+switch baseAttack {
+case 1...30:
+  println(&amp;quot;Too weak for battles.&amp;quot;)
+case 31...70:
+  println(&amp;quot;Nothing to threaten the opponent.&amp;quot;)
+case 71...150:
+  println(&amp;quot;Now we&amp;#39;re talking!&amp;quot;) // &amp;lt;-
+case 151...200:
+  println(&amp;quot;Uber!&amp;quot;)
+default:
+  println(&amp;quot;This will get you banned.&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="tuple-matching"&gt;Tuple Matching&lt;/h3&gt;
+
+&lt;p&gt;Tuples can be used as values in &lt;code&gt;switch&lt;/code&gt; cases. You can ignore a value in the
+tuple by replacing it with &lt;code&gt;_&lt;/code&gt; in the case&amp;rsquo;s test:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let baseSpecialAttack = 55
+let baseMixedAttack = (baseAttack, baseSpecialAttack)
+
+switch baseMixedAttack {
+case (80...200, 80...200):
+  println(&amp;quot;Good mixed sweeper.&amp;quot;)
+case (_, 80...200):
+  println(&amp;quot;Good special sweeper.&amp;quot;)
+case (80...200, _):
+  println(&amp;quot;Good physical sweeper.&amp;quot;) // &amp;lt;-
+default:
+  println(&amp;quot;This will get you banned.&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="binding-values"&gt;Binding Values&lt;/h3&gt;
+
+&lt;p&gt;Matched values can be bound to constants or variables and reused
+inside the case&amp;rsquo;s body:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;switch baseMixedAttack {
+case (80...200, let specialAttack):
+  println(&amp;quot;Good physical sweeper with a special attack of \(specialAttack)&amp;quot;) // &amp;lt;-
+case (let attack, 80...200):
+  println(&amp;quot;Good special sweeper with an attack of \(attack)&amp;quot;)
+default:
+  println(&amp;quot;Move on.&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="where"&gt;Where&lt;/h3&gt;
+
+&lt;p&gt;Cases in a &lt;code&gt;switch&lt;/code&gt; statement can use a &lt;code&gt;where&lt;/code&gt; clause to perform additional checks:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;switch baseMixedAttack {
+case let (attack, specialAttack) where attack == specialAttack:
+  println(&amp;quot;Perfectly balanced attack stats.&amp;quot;)
+default:
+  println(&amp;quot;Unbalanced attack stats.&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>This section takes a look at what Swift has to offer in terms of control flow, an essential part of every programming language. In this first part we will look at 'if' and 'switch' statements.</summary>
+  </entry>
   <entry>
     <title>Basic Operators</title>
     <link rel="alternate" href="http://learn-swift.co/basic-operators/"/>
     <id>http://learn-swift.co/basic-operators/</id>
     <published>2014-07-30T17:45:00+02:00</published>
-    <updated>2014-08-03T12:54:38+02:00</updated>
+    <updated>2014-08-06T21:18:16+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -221,7 +380,7 @@ normalMode // -&amp;gt; (1, &amp;quot;Green&amp;quot;)
     <link rel="alternate" href="http://learn-swift.co/dictionaries/"/>
     <id>http://learn-swift.co/dictionaries/</id>
     <published>2014-07-20T00:00:00+02:00</published>
-    <updated>2014-08-05T01:29:47+02:00</updated>
+    <updated>2014-08-06T21:18:16+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -315,7 +474,7 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
     <published>2014-07-05T00:00:00+02:00</published>
-    <updated>2014-08-05T01:29:48+02:00</updated>
+    <updated>2014-08-06T21:18:16+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>

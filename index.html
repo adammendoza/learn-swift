@@ -103,6 +103,88 @@ var oneHitKO = (damage &gt; remainingHP) // -&gt; true
 !oneHitKO // -&gt; false
 !oneHitKO &amp;&amp; lastPokemon // -&gt; false
 !oneHitKO || lastPokemon // -&gt; true
+</code></pre> </article> </div> <div class=article-container> <article class=post data-role=content> <header class=article-header> <h2 class=article-title id=basic-control-flow> Basic Control Flow </h2> <a href="https://dl.dropboxusercontent.com/u/148921/learn-swift/basic-control-flow.zip" class=download-playground> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="assets/images/sprite-42872aae.svg#file" class="file icon-path"></use></svg> Download Playground </a> </header> <h3 id=conditional-statements>Conditional Statements</h3> <p>The <code>if</code> statement evaluates a boolean value and executes a code block if it&rsquo;s <code>true</code>:</p> <pre><code class="swift">let elementalType = &quot;Fire&quot;
+
+if elementalType == &quot;Fire&quot; {
+  println(&quot;Use water!&quot;) // &lt;-
+}
+</code></pre> <p>With <code>else</code>:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
+  println(&quot;Any steel pokemons around?&quot;)
+} else {
+  println(&quot;Draco Meteor!&quot;) // &lt;-
+}
+</code></pre> <h3 id=chaining-conditionals>Chaining Conditionals</h3> <p>Multiple <code>if</code> statements can be chained:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
+  println(&quot;Any steel pokemons around?&quot;)
+} else if elementalType == &quot;Steel&quot; {
+  println(&quot;Kill it with fire!&quot;)
+} else {
+  println(&quot;Draco Meteor Again.&quot;) // &lt;-
+}
+</code></pre> <h3 id=switch-statements>Switch Statements</h3> <p>The <code>switch</code> statement evaluates a value against multiple patterns then executes the code corresponding to the one that matches:</p> <pre><code class="swift">switch elementalType {
+case &quot;Fairy&quot;:
+  println(&quot;Any steel pokemons around?&quot;)
+case &quot;Steel&quot;:
+  println(&quot;Kill it with fire!&quot;)
+default:
+  println(&quot;More Draco Meteor.&quot;) // &lt;-
+}
+</code></pre> <p>A <code>switch</code> statement needs to be exhaustive; every possible value should be covered. The <code>default</code> case covers all the remaining cases.</p> <p>A single case can check against multiple values:</p> <pre><code class="swift">switch elementalType {
+case &quot;Dragon&quot;, &quot;Flying&quot;, &quot;Grass&quot;, &quot;Ground&quot;:
+  println(&quot;Freeze it to death.&quot;)
+case &quot;Ice&quot;:
+  println(&quot;Melt it with fire!&quot;)
+default:
+  println(&quot;Ready for another Draco Meteor?&quot;) // &lt;-
+}
+</code></pre> <h3 id=switch-fall-through>Switch Fall-through</h3> <p>The execution of a <code>switch</code> statement stops as soon a case is matched:</p> <pre><code class="swift">let fireType = &quot;Fire&quot;
+
+switch fireType {
+case &quot;Fire&quot;:
+  println(&quot;Go, Squirtle!&quot;) // &lt;-
+default:
+  println(&quot;Your turn will never come, Pikachu...&quot;)
+}
+</code></pre> <p>You can also explicitly end execution using the keyword <code>break</code> anywhere in the statement.</p> <h3 id=range-matching>Range Matching</h3> <p>Cases in a <code>switch</code> statement can check if a value is included in a range:</p> <pre><code class="swift">let baseAttack = 89
+
+switch baseAttack {
+case 1...30:
+  println(&quot;Too weak for battles.&quot;)
+case 31...70:
+  println(&quot;Nothing to threaten the opponent.&quot;)
+case 71...150:
+  println(&quot;Now we&#39;re talking!&quot;) // &lt;-
+case 151...200:
+  println(&quot;Uber!&quot;)
+default:
+  println(&quot;This will get you banned.&quot;)
+}
+</code></pre> <h3 id=tuple-matching>Tuple Matching</h3> <p>Tuples can be used as values in <code>switch</code> cases. You can ignore a value in the tuple by replacing it with <code>_</code> in the case&rsquo;s test:</p> <pre><code class="swift">let baseSpecialAttack = 55
+let baseMixedAttack = (baseAttack, baseSpecialAttack)
+
+switch baseMixedAttack {
+case (80...200, 80...200):
+  println(&quot;Good mixed sweeper.&quot;)
+case (_, 80...200):
+  println(&quot;Good special sweeper.&quot;)
+case (80...200, _):
+  println(&quot;Good physical sweeper.&quot;) // &lt;-
+default:
+  println(&quot;This will get you banned.&quot;)
+}
+</code></pre> <h3 id=binding-values>Binding Values</h3> <p>Matched values can be bound to constants or variables and reused inside the case&rsquo;s body:</p> <pre><code class="swift">switch baseMixedAttack {
+case (80...200, let specialAttack):
+  println(&quot;Good physical sweeper with a special attack of \(specialAttack)&quot;) // &lt;-
+case (let attack, 80...200):
+  println(&quot;Good special sweeper with an attack of \(attack)&quot;)
+default:
+  println(&quot;Move on.&quot;)
+}
+</code></pre> <h3 id=where>Where</h3> <p>Cases in a <code>switch</code> statement can use a <code>where</code> clause to perform additional checks:</p> <pre><code class="swift">switch baseMixedAttack {
+case let (attack, specialAttack) where attack == specialAttack:
+  println(&quot;Perfectly balanced attack stats.&quot;)
+default:
+  println(&quot;Unbalanced attack stats.&quot;)
+}
 </code></pre> </article> </div> <aside class=stay-updated> <span class=to-be-continued> To be continued... </span> <section class=social-links> <ul> <li> <a class=subscribe-link data-trigger=subscription-modal href="#subscribe"> <strong>Email me</strong> all updates... </a> <div class=subscription-modal data-role=subscription-modal> <div class=subscription-modal-content> <label class=modal-close data-role=close></label> <h4 id=subscribe class=title>Get email udpates</h4> <p class=prompt>Enter your email address. No spam, promise.</p> <form class="validate email-form" action="//learn-swift.us8.list-manage1.com/subscribe/post?u=297fd63d48447b04cba35a2eb&id=b706000305" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form> <input type=email class="required email" id=mce-EMAIL name=EMAIL placeholder="you@example.com"> <input type=text class=hidden-field name=b_297fd63d48447b04cba35a2eb_b706000305 tabindex=-1> <button type=submit class=submit-button id=mc-embedded-subscribe name=subscribe> Subscribe me! </button> </form> </div> </div> <div class=modal-overlay data-role=overlay></div> </li> <li> <a class=rss-link href="//rss.learn-swift.co/feed"> Gimme the <strong>RSS feed</strong> </a> </li> <li> <a class=twitter-link href="https://twitter.com/learnswiftintro"> <strong>Twitter</strong> is my thing </a> </li> </ul> </section> </aside> </section> <footer> <div data-role=content> Want to contribute? Here's the <a href="//github.com/kaishin/learn-swift">source code</a>. <p>Designed &amp; maintained by <a href="//redalemeden.com">Reda Lemeden</a>.</p> <a class=donate-link data-trigger=donation-modal href="#donate"> Buy the author some <strong>Matcha</strong> </a> <div class=donation-modal data-role=donation-modal> <div class=donation-modal-content> <label class=modal-close data-role=close></label> <h4 id=donate class=title> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="assets/images/sprite-42872aae.svg#heart" class="heart icon-path"></use></svg> Donate </h4> <p>If you like this website and would like to support its further development, please consider donating.</p> <div class=bitcoin> <h6 class=bitcoin-title> <svg viewBox="0 0 8 8" class=svg-icon width=16 height=16><use xlink:href="assets/images/sprite-42872aae.svg#bitcoin" class="bitcoin icon-path"></use></svg> Bitcoin Address: </h6> <data class=wallet-id value=12vVjzi5Ct7oW9pwgZdPm3SkQUfdiR6eWs>12vVjzi5Ct7oW9pwgZdPm3SkQUfdiR6eWs</data> </div> <div class=fiat> You can also donate via <a href="mailto:hello@learn-swift.co?cc=send@square.com&Subject=0%24&Body=Keep%20up%20the%20good%20work%21">Square Cash</a> or good ol'<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HEPCTVD5UXSG2">Paypal</a>. </div> <p class=note><em>PS</em>: Never heard of <a href="//en.wikipedia.org/wiki/Matcha">matcha</a>? No worries, it's <em>100%</em> legal.</p> </div> </div> <div class=modal-overlay data-role=overlay></div> </div> </footer> <script src="assets/javascripts/main-446c0280.js" async=true></script> <script>
   (function(d) {
     var config = {
