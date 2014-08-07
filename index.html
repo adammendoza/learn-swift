@@ -109,21 +109,21 @@ if elementalType == &quot;Fire&quot; {
   println(&quot;Use water!&quot;) // &lt;-
 }
 </code></pre> <p>With <code>else</code>:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
-  println(&quot;Any steel pokemons around?&quot;)
+  println(&quot;Use poison!&quot;)
 } else {
   println(&quot;Draco Meteor!&quot;) // &lt;-
 }
 </code></pre> <h3 id=chaining-conditionals>Chaining Conditionals</h3> <p>Multiple <code>if</code> statements can be chained:</p> <pre><code class="swift">if elementalType == &quot;Fairy&quot; {
-  println(&quot;Any steel pokemons around?&quot;)
-} else if elementalType == &quot;Steel&quot; {
+  println(&quot;Use poison!&quot;)
+} else if elementalType == &quot;Bug&quot; {
   println(&quot;Kill it with fire!&quot;)
 } else {
   println(&quot;Draco Meteor Again.&quot;) // &lt;-
 }
 </code></pre> <h3 id=switch-statements>Switch Statements</h3> <p>The <code>switch</code> statement evaluates a value against multiple patterns then executes the code corresponding to the one that matches:</p> <pre><code class="swift">switch elementalType {
 case &quot;Fairy&quot;:
-  println(&quot;Any steel pokemons around?&quot;)
-case &quot;Steel&quot;:
+  println(&quot;Use poison!&quot;)
+case &quot;Bug&quot;:
   println(&quot;Kill it with fire!&quot;)
 default:
   println(&quot;More Draco Meteor.&quot;) // &lt;-
@@ -148,15 +148,15 @@ default:
 
 switch baseAttack {
 case 1...30:
-  println(&quot;Too weak for battles.&quot;)
+  println(&quot;Jus release it.&quot;)
 case 31...70:
-  println(&quot;Nothing to threaten the opponent.&quot;)
+  println(&quot;Meh&quot;)
 case 71...150:
   println(&quot;Now we&#39;re talking!&quot;) // &lt;-
 case 151...200:
   println(&quot;Uber!&quot;)
 default:
-  println(&quot;This will get you banned.&quot;)
+  println(&quot;Hackemon!&quot;)
 }
 </code></pre> <h3 id=tuple-matching>Tuple Matching</h3> <p>Tuples can be used as values in <code>switch</code> cases. You can ignore a value in the tuple by replacing it with <code>_</code> in the case&rsquo;s test:</p> <pre><code class="swift">let baseSpecialAttack = 55
 let baseMixedAttack = (baseAttack, baseSpecialAttack)
@@ -169,7 +169,7 @@ case (_, 80...200):
 case (80...200, _):
   println(&quot;Good physical sweeper.&quot;) // &lt;-
 default:
-  println(&quot;This will get you banned.&quot;)
+  println(&quot;Not competitive enough.&quot;)
 }
 </code></pre> <h3 id=binding-values>Binding Values</h3> <p>Matched values can be bound to constants or variables and reused inside the case&rsquo;s body:</p> <pre><code class="swift">switch baseMixedAttack {
 case (80...200, let specialAttack):
@@ -177,7 +177,7 @@ case (80...200, let specialAttack):
 case (let attack, 80...200):
   println(&quot;Good special sweeper with an attack of \(attack)&quot;)
 default:
-  println(&quot;Move on.&quot;)
+  println(&quot;Not competitive enough.&quot;)
 }
 </code></pre> <h3 id=where>Where</h3> <p>Cases in a <code>switch</code> statement can use a <code>where</code> clause to perform additional checks:</p> <pre><code class="swift">switch baseMixedAttack {
 case let (attack, specialAttack) where attack == specialAttack:
