@@ -2,49 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://learn-swift.co/404/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://learn-swift.co/optionals/</loc>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/basic-control-flow/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/basic-operators/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/tuples/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/dictionaries/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/arrays/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/getting-started/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://learn-swift.co/</loc>
-    <lastmod>2014-08-07T00:00:00+02:00</lastmod>
+    <lastmod>2014-08-12T00:00:00+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

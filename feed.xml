@@ -5,16 +5,116 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-08-06T17:00:00+02:00</updated>
+  <updated>2014-08-06T20:55:00+02:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
+  <entry>
+    <title>Optionals</title>
+    <link rel="alternate" href="http://learn-swift.co/optionals/"/>
+    <id>http://learn-swift.co/optionals/</id>
+    <published>2014-08-06T20:55:00+02:00</published>
+    <updated>2014-08-12T00:31:50+02:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="declaring-optionals"&gt;Declaring Optionals&lt;/h3&gt;
+
+&lt;p&gt;Optionals are variables or constants that can either have a value or be &lt;code&gt;nil&lt;/code&gt;.
+They are defined by appending a &lt;code&gt;?&lt;/code&gt; at the end of the type in the declaration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var dropItemName: String? // Enemy may or may not drop item
+dropItemName = &amp;quot;Wizard&amp;#39;s Relic&amp;quot;
+dropItemName = nil // This would have raised an error if the variable wasn&amp;#39;t an optional
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="inspecting-optionals"&gt;Inspecting Optionals&lt;/h3&gt;
+
+&lt;p&gt;You can compare the optional against &lt;code&gt;nil&lt;/code&gt; to find out if it contains a value or
+not:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;dropItemName == nil // &amp;lt;- true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can also be used in &lt;code&gt;if&lt;/code&gt; statements:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;if dropItemName == nil {
+  println(&amp;quot;Out of luck.&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="forced-unwrapping"&gt;Forced Unwrapping&lt;/h3&gt;
+
+&lt;p&gt;If the optional is guaranteed to contain a value, you can &lt;em&gt;unwrap&lt;/em&gt; its value using an
+exclamation mark at the end of the optional name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;dropItemName = &amp;quot;Elixir&amp;quot;
+if dropItemName != nil {
+  println(&amp;quot;You got an unwrapped \(dropItemName!)&amp;quot;) // &amp;lt;-
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unwrapping allows you to directly access the value contained in the optional.&lt;/p&gt;
+
+&lt;h3 id="optional-binding"&gt;Optional Binding&lt;/h3&gt;
+
+&lt;p&gt;You can also bind a variable or a constant to the value contained in an
+optional in an &lt;code&gt;if&lt;/code&gt; or &lt;code&gt;while&lt;/code&gt; statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;if let itemName = dropItemName {
+  println(&amp;quot;This is undoubtedly an \(itemName)&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="implicit-unwrapping"&gt;Implicit Unwrapping&lt;/h3&gt;
+
+&lt;p&gt;If an optional is guaranteed to &lt;em&gt;always&lt;/em&gt; contain a value, it can be declared as an
+&lt;em&gt;implicitly unwrapped optional&lt;/em&gt; by appending an exclamation mark to its type in
+the definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var implicitlyUnwrappedItemName: String! = &amp;quot;Omega Arts&amp;quot;
+println(&amp;quot;\(implicitlyUnwrappedItemName) is a certain drop.&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Using this method, you don&amp;rsquo;t have to append &lt;code&gt;!&lt;/code&gt; to unwrap the value contained in
+the optional; it will be implicitly unwrapped for you.&lt;/p&gt;
+
+&lt;h3 id="optional-chaining"&gt;Optional Chaining&lt;/h3&gt;
+
+&lt;p&gt;You can use &lt;em&gt;optional chaining&lt;/em&gt; to call a method on an optional. In order to do
+so, append a question mark to the name of the optional, just before the dot
+preceding the method name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let dropRates: [String: Float]? = [&amp;quot;Wizard&amp;#39;s Relic&amp;quot;: 0.002, &amp;quot;Shiny Crystal&amp;quot;: 0.2, &amp;quot;Ether&amp;quot;: 0.2]
+dropRates.isEmpty // -&amp;gt; Error
+dropRates?.isEmpty // -&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Optional chaining can also be used to get/set properties, which will be
+introduced later.&lt;/p&gt;
+
+&lt;h3 id="nil-coalescing-operator"&gt;Nil Coalescing Operator&lt;/h3&gt;
+
+&lt;p&gt;The &lt;em&gt;nil coalescing operator&lt;/em&gt; &lt;code&gt;??&lt;/code&gt; is used to unwrap an optional if it&amp;rsquo;s not
+&lt;code&gt;nil&lt;/code&gt; or return a default value otherwise:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let weaponOfChoice: String? = &amp;quot;One Winged Angel&amp;quot;
+let currentWeapon = weaponOfChoice ?? &amp;quot;Kingdom Key&amp;quot;
+currentWeapon // -&amp;gt; &amp;quot;One Winged Angel&amp;quot;
+
+let shieldOfChoice: String? = nil
+let currentShield = shieldOfChoice ?? &amp;quot;Knight&amp;#39;s Shield&amp;quot;
+currentShield // -&amp;gt; &amp;quot;Knight&amp;#39;s Shield&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>Optionals are variables or constants that can either have a value or be nil.</summary>
+  </entry>
   <entry>
     <title>Basic Control Flow</title>
     <link rel="alternate" href="http://learn-swift.co/basic-control-flow/"/>
     <id>http://learn-swift.co/basic-control-flow/</id>
     <published>2014-08-06T17:00:00+02:00</published>
-    <updated>2014-08-07T20:25:43+02:00</updated>
+    <updated>2014-08-11T20:57:50+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
