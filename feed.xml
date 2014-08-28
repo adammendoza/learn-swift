@@ -5,10 +5,162 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-08-06T20:55:00+02:00</updated>
+  <updated>2014-08-28T00:00:00+02:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
+  <entry>
+    <title>Function Basics</title>
+    <link rel="alternate" href="http://learn-swift.co/function-basics/"/>
+    <id>http://learn-swift.co/function-basics/</id>
+    <published>2014-08-28T00:00:00+02:00</published>
+    <updated>2014-08-29T00:50:33+02:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="defining-functions"&gt;Defining Functions&lt;/h3&gt;
+
+&lt;p&gt;A function is a stand-alone set of instructions that can be reused to achieve
+the same task in different parts of the program.&lt;/p&gt;
+
+&lt;p&gt;In Swift, functions are defined using the &lt;code&gt;func&lt;/code&gt; keyword, followed by the
+function name, its parameters, then its return type. Both parameters and the return
+type can be omitted if the function takes no parameters and returns no value:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircleForward() {
+  println(&amp;quot;Down&amp;quot;)
+  println(&amp;quot;Down-forward&amp;quot;)
+  println(&amp;quot;Forward&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Parameters, if present, should be named and type-labeled inside the parentheses
+following the function&amp;rsquo;s name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(direction: String) {
+  println(&amp;quot;Down&amp;quot;)
+  println(&amp;quot;Down-\(direction)&amp;quot;)
+  println(direction)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(&amp;quot;Forward&amp;quot;) // Prints same output as previous function
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the function returns a value, the type of the latter should be specified after the closing parenthesis of the parameters, preceded by a &lt;code&gt;-&amp;gt;&lt;/code&gt; (&lt;em&gt;return arrow&lt;/em&gt;) sign:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func canPerformSuperCombo(gauge: Float) -&amp;gt; Bool {
+  return gauge == 1.0
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="calling-functions"&gt;Calling Functions&lt;/h3&gt;
+
+&lt;p&gt;To call a function, use its name followed immediately by parentheses containing any required
+parameters. The parentheses can&amp;rsquo;t be omitted even in the absence of required
+parameters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;canPerformSuperCombo(0.8) // -&amp;gt; false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="multiple-parameters"&gt;Multiple Parameters&lt;/h3&gt;
+
+&lt;p&gt;Multiple parameters should be separated by commas:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func canPerformShinkuHadoken(gauge: Float, name: String) -&amp;gt; Bool {
+  if name == &amp;quot;Ryu&amp;quot; || name == &amp;quot;Sakura&amp;quot; {
+    return canPerformSuperCombo(gauge)
+  } else {
+    return false
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;canPerformShinkuHadoken(1.0, &amp;quot;Ryu&amp;quot;) // -&amp;gt; true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="multiple-return-values"&gt;Multiple Return Values&lt;/h3&gt;
+
+&lt;p&gt;Functions can also return &lt;a href="http://learn-swift.co/#tuples"&gt;tuples&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func canPerformUltraCombo(revengeGauge: Float) -&amp;gt; (Bool, damageMultiplier: Float) {
+  if revengeGauge &amp;gt;= 0.5 {
+    if revengeGauge == 1.0 {
+      return (true, 1.5)
+    } else {
+      return (true, 1.0)
+    }
+  } else {
+    return (false, 0)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;canPerformUltraCombo(0.6) // -&amp;gt; (true, 1.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="external-parameter-names"&gt;External Parameter Names&lt;/h3&gt;
+
+&lt;p&gt;In the &lt;code&gt;quarterCircle(direction: String)&lt;/code&gt; function above, &lt;code&gt;direction&lt;/code&gt; is only
+used within the function, not in its call signature. For more clarity of intent,
+you can provide an external name for each parameter by placing it before its
+internal one:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(relativeDirection direction: String) {
+  println(&amp;quot;Down&amp;quot;)
+  println(&amp;quot;Down-\(direction)&amp;quot;)
+  println(direction)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(relativeDirection: &amp;quot;Backward&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice how the parameter name is now part of the function&amp;rsquo;s signature.&lt;/p&gt;
+
+&lt;p&gt;If you want to use the same value for both internal and external names, you can
+use the &lt;code&gt;#&lt;/code&gt; shortcut notation:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func canPerformSuperCombo(#gauge: Float) -&amp;gt; Bool {
+  return gauge == 1.0
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;canPerformSuperCombo(gauge: 0.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="default-parameter-values"&gt;Default Parameter Values&lt;/h3&gt;
+
+&lt;p&gt;You can assign default values to your function parameters:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(direction: String = &amp;quot;Forward&amp;quot;) {
+  println(&amp;quot;Down&amp;quot;)
+  println(&amp;quot;Down-\(direction)&amp;quot;)
+  println(direction)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle() // Called without argument
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="variadic-parameters"&gt;Variadic Parameters&lt;/h3&gt;
+
+&lt;p&gt;Functions can take an arbitrary number of arguments of the same type, called variadic
+parameters. Variadic parameters use &lt;code&gt;...&lt;/code&gt; after their type label in the function
+definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;func directionalInput(directions: String...) {
+  for direction in directions {
+    println(direction)
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;directionalInput(&amp;quot;Down&amp;quot;, &amp;quot;Up&amp;quot;) // Prints &amp;quot;Down&amp;quot;, &amp;quot;Up&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <summary>Functions are an essential part of any modern programming language. Let's look at what Swift has to offer.</summary>
+  </entry>
   <entry>
     <title>Optionals</title>
     <link rel="alternate" href="http://learn-swift.co/optionals/"/>
@@ -574,7 +726,7 @@ bossNames // -&amp;gt; [&amp;quot;Emerald Hill&amp;quot;: &amp;quot;Drill&amp;qu
     <link rel="alternate" href="http://learn-swift.co/arrays/"/>
     <id>http://learn-swift.co/arrays/</id>
     <published>2014-07-05T00:00:00+02:00</published>
-    <updated>2014-08-06T21:18:16+02:00</updated>
+    <updated>2014-08-28T20:39:52+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
