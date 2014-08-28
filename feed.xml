@@ -14,7 +14,7 @@
     <link rel="alternate" href="http://learn-swift.co/function-basics/"/>
     <id>http://learn-swift.co/function-basics/</id>
     <published>2014-08-28T00:00:00+02:00</published>
-    <updated>2014-08-29T00:50:33+02:00</updated>
+    <updated>2014-08-29T01:23:39+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -27,10 +27,10 @@ the same task in different parts of the program.&lt;/p&gt;
 function name, its parameters, then its return type. Both parameters and the return
 type can be omitted if the function takes no parameters and returns no value:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircleForward() {
-  println(&amp;quot;Down&amp;quot;)
-  println(&amp;quot;Down-forward&amp;quot;)
-  println(&amp;quot;Forward&amp;quot;)
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircleforward() {
+  println(&amp;quot;down&amp;quot;)
+  println(&amp;quot;down-forward&amp;quot;)
+  println(&amp;quot;forward&amp;quot;)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -38,13 +38,13 @@ type can be omitted if the function takes no parameters and returns no value:&lt
 following the function&amp;rsquo;s name:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(direction: String) {
-  println(&amp;quot;Down&amp;quot;)
-  println(&amp;quot;Down-\(direction)&amp;quot;)
+  println(&amp;quot;down&amp;quot;)
+  println(&amp;quot;down-\(direction)&amp;quot;)
   println(direction)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(&amp;quot;Forward&amp;quot;) // Prints same output as previous function
+&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(&amp;quot;forward&amp;quot;) // Prints same output as previous function
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;If the function returns a value, the type of the latter should be specified after the closing parenthesis of the parameters, preceded by a &lt;code&gt;-&amp;gt;&lt;/code&gt; (&lt;em&gt;return arrow&lt;/em&gt;) sign:&lt;/p&gt;
@@ -107,13 +107,13 @@ you can provide an external name for each parameter by placing it before its
 internal one:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(relativeDirection direction: String) {
-  println(&amp;quot;Down&amp;quot;)
-  println(&amp;quot;Down-\(direction)&amp;quot;)
+  println(&amp;quot;down&amp;quot;)
+  println(&amp;quot;down-\(direction)&amp;quot;)
   println(direction)
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(relativeDirection: &amp;quot;Backward&amp;quot;)
+&lt;pre&gt;&lt;code class="swift"&gt;quarterCircle(relativeDirection: &amp;quot;backward&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Notice how the parameter name is now part of the function&amp;rsquo;s signature.&lt;/p&gt;
@@ -133,9 +133,9 @@ use the &lt;code&gt;#&lt;/code&gt; shortcut notation:&lt;/p&gt;
 
 &lt;p&gt;You can assign default values to your function parameters:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(direction: String = &amp;quot;Forward&amp;quot;) {
-  println(&amp;quot;Down&amp;quot;)
-  println(&amp;quot;Down-\(direction)&amp;quot;)
+&lt;pre&gt;&lt;code class="swift"&gt;func quarterCircle(direction: String = &amp;quot;forward&amp;quot;) {
+  println(&amp;quot;down&amp;quot;)
+  println(&amp;quot;down-\(direction)&amp;quot;)
   println(direction)
 }
 &lt;/code&gt;&lt;/pre&gt;
@@ -156,7 +156,7 @@ definition:&lt;/p&gt;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code class="swift"&gt;directionalInput(&amp;quot;Down&amp;quot;, &amp;quot;Up&amp;quot;) // Prints &amp;quot;Down&amp;quot;, &amp;quot;Up&amp;quot;
+&lt;pre&gt;&lt;code class="swift"&gt;directionalInput(&amp;quot;down&amp;quot;, &amp;quot;up&amp;quot;) // Prints &amp;quot;down&amp;quot;, &amp;quot;up&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 </content>
     <summary>Functions are an essential part of any modern programming language. Let's look at what Swift has to offer.</summary>
