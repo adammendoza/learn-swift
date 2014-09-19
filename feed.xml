@@ -11,10 +11,10 @@
   </author>
   <entry>
     <title>Enumerations</title>
-    <link rel="alternate" href="http://learn-swift.co/enums/"/>
-    <id>http://learn-swift.co/enums/</id>
+    <link rel="alternate" href="http://learn-swift.co/enumerations/"/>
+    <id>http://learn-swift.co/enumerations/</id>
     <published>2014-09-16T00:00:00+02:00</published>
-    <updated>2014-09-19T10:15:29+02:00</updated>
+    <updated>2014-09-19T10:19:07+02:00</updated>
     <author>
       <name>Reda Lemeden</name>
     </author>
@@ -98,7 +98,7 @@ enumeration member, use &lt;code&gt;toRow()&lt;/code&gt;:&lt;/p&gt;
   case Minion = &amp;quot;Minion&amp;quot;
 }
 
-let bossTypeString = EnemyType.Boss.toRaw() -&amp;gt; &amp;quot;Boss&amp;quot;
+let bossTypeString = EnemyType.Boss.toRaw() // -&amp;gt; &amp;quot;Boss&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;To get an enumeration member from a raw value, use &lt;code&gt;fromRaw()&lt;/code&gt;:&lt;/p&gt;
