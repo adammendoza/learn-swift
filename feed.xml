@@ -5,10 +5,111 @@
   <id>http://learn-swift.co</id>
   <link href="http://learn-swift.co"/>
   <link href="http://learn-swift.co/feed" rel="self"/>
-  <updated>2014-08-28T00:00:00+02:00</updated>
+  <updated>2014-09-16T00:00:00+02:00</updated>
   <author>
     <name>Reda Lemeden</name>
   </author>
+  <entry>
+    <title>Enumerations</title>
+    <link rel="alternate" href="http://learn-swift.co/enums/"/>
+    <id>http://learn-swift.co/enums/</id>
+    <published>2014-09-16T00:00:00+02:00</published>
+    <updated>2014-09-19T10:15:29+02:00</updated>
+    <author>
+      <name>Reda Lemeden</name>
+    </author>
+    <content type="html">&lt;h3 id="defining-enumerations"&gt;Defining Enumerations&lt;/h3&gt;
+
+&lt;p&gt;Enumerations, also commonly referred to as &lt;em&gt;enums&lt;/em&gt;, are a data type that holds a set of named, mutually exclusive values.&lt;/p&gt;
+
+&lt;p&gt;Enumerations are declared using the &lt;code&gt;enum&lt;/code&gt; keyword, with each member preceded by the &lt;code&gt;case&lt;/code&gt; keyword:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;enum WeaponType {
+  case Whip
+  case Chain
+  case Sword
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The elements can also be declared in the same line:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;enum SubWeaponType {
+  case Dagger, Axe, Stopwatch
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use dot syntax to declare a variable or constant enumeration value:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let MagicWhipType = WeaponType.Whip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you explicitly set the type of the variable or constant, you can omit the enumeration name in the right-hand side of the assignment:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;var ShortChainType: WeaponType = .Chain
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="switching-on-enumeration-values"&gt;Switching on Enumeration Values&lt;/h3&gt;
+
+&lt;p&gt;Enumerations are commonly used in &lt;code&gt;switch&lt;/code&gt; statements:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let equippedSubWeaponType = SubWeaponType.Dagger
+
+switch equippedSubWeaponType {
+case .Dagger:
+  println(&amp;quot;Keep enemies at a distance.&amp;quot;)
+case .Axe:
+  println(&amp;quot;Target airborne enemies.&amp;quot;)
+case .Stopwatch:
+  println(&amp;quot;Freeze time!&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="associated-values"&gt;Associated Values&lt;/h3&gt;
+
+&lt;p&gt;Enumeration members can hold associated values of any type. The type of the associated value should be specified in the enumeration declaration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;enum ItemType {
+  case Healing(restoredHearts: Int)
+  case Money(amount: Int)
+}
+
+let smallHeartType = ItemType.Healing(restoredHearts: 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can check the associated value of an enumeration using a &lt;code&gt;switch&lt;/code&gt; statement:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;switch smallHeartType {
+case .Healing(let restoredHearts):
+  println(&amp;quot;Restores \(restoredHearts) heart(s).&amp;quot;)
+case .Money(let amount):
+  println(&amp;quot;Earns you \(amount) of gold. &amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id="raw-values"&gt;Raw Values&lt;/h3&gt;
+
+&lt;p&gt;Beside associated values, enumeration members can also hold default—or
+raw—values. Unlike associated values, each member has always the same raw value
+that&amp;rsquo;s specified when the enumeration is declared. To get the raw value of an
+enumeration member, use &lt;code&gt;toRow()&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;enum EnemyType: String {
+  case Boss = &amp;quot;Boss&amp;quot;
+  case Minion = &amp;quot;Minion&amp;quot;
+}
+
+let bossTypeString = EnemyType.Boss.toRaw() -&amp;gt; &amp;quot;Boss&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To get an enumeration member from a raw value, use &lt;code&gt;fromRaw()&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class="swift"&gt;let minionType = EnemyType.fromRaw(&amp;quot;Minion&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Raw values can be &lt;code&gt;String&lt;/code&gt;, &lt;code&gt;Character&lt;/code&gt;, &lt;code&gt;Int&lt;/code&gt;, or &lt;code&gt;Float&lt;/code&gt;/&lt;code&gt;Double&lt;/code&gt;.&lt;/p&gt;
+</content>
+    <summary>This section explores Enumerations in Swift and what makes them more powerful and flexible than their Objective-C counterparts.</summary>
+  </entry>
   <entry>
     <title>Function Basics</title>
     <link rel="alternate" href="http://learn-swift.co/function-basics/"/>
